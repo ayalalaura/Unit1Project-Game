@@ -3,6 +3,39 @@ body {
   background-position:  cover;
 }
 
+#start-screen {
+  background-color: pink;
+  width:  50%;
+  height: auto;
+  margin:  0 auto;
+  padding: 10px;
+  margin-top:  20%;
+}
+
+#win-screen {
+  background-color: pink;
+  width:  50%;
+  height: auto;
+  margin:  0 auto;
+  padding: 10px;
+  margin-top:  20%;
+  display: none;
+}
+
+#lose-screen {
+  background-color: pink;
+  width:  50%;
+  height: auto;
+  margin:  0 auto;
+  padding: 10px;
+  margin-top:  20%;
+  display: none;
+}
+
+#main-container {
+  display: none;
+}
+
 #falling-foods {
   margin-left: 15%;
 }
@@ -13,7 +46,7 @@ body {
   display: inline-block;
   position: absolute;
   top:  0;
-  animation:  fall 5s linear infinite;
+  animation:  fall 4s linear infinite;
 }
 
 #score p{

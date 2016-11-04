@@ -23,6 +23,7 @@ $(document).ready(function() {
     ['Pizza','images/pizza.png','junk',20],
   ];
 
+
 //  empty array to store the randomized food(s)
 // var $assorted = [ ];
 
@@ -43,8 +44,22 @@ $negScore.text('Junk Score: ' + $junkScore);
 var $randomNum = function randNum (min,max) {
     return Math.floor(Math.random() * (max - min +1) + min);}
 
+
+// replay function
+// thanks Mike!
+var restart = function() {
+  location.reload();
+}
+
+
+
 // function to create the food items
 var makeFood = function() {
+
+// when this function is called, make the main container (holding
+// game elements) visible
+$('#main-container').css('display', 'block');
+
   // choosing which array with a random number (0 or 1)
   var healthOrJunk = Math.round(Math.random());
       if (healthOrJunk === 0){
@@ -63,8 +78,11 @@ var makeFood = function() {
   // appending each food div to the foods container
   $fallingFoods.append($foods);
 
+  // return values
+  //
 
   $foods.click(function(){
+    // change cursor to mickey mouse hand
     $foods.remove();
     // remove foods div altogether when clicked
      var $points = $randomNum(5,30)
@@ -75,6 +93,22 @@ var makeFood = function() {
         // $negScore.text('Junk Score: ' + ($junkScore + foodItem[3]));
         $negScore.text('Junk Score: ' + ($junkScore += $points));
         }
+
+     if ($totalScore >= 300){
+      clearInterval(stop); // this doesn't work
+      $('#win-screen').css('display', 'block');
+      $('#win-screen').toggleClass('animated').addClass('slideInLeft');
+
+      console.log($totalScore);
+     };
+
+     if ($junkScore >= 200){
+      clearInterval(stop); // this doesn't work
+      $('#lose-screen').css('display', 'block');
+      $('#lose-screen').toggleClass('animated').addClass('slideInLeft');
+
+      console.log($junkScore);
+     };
         // console.log($totalScore);
         // console.log($junkScore);
     // overallScore();
@@ -98,12 +132,27 @@ var makeFood = function() {
 // }
 
 
+
+
 var addEventListeners = function() {
 
+$('#start-button').click(function(){
+  $('#start-screen').css('display', 'none');
   var stop = setInterval(function(){
-  makeFood();
+  makeFood(); // calling makeFood() twice - FIX THIS!
   //clearInterval(stop); // put this in an if statement - game over
-  },2000)
+  },600)
+
+$('.replay-button').click(function() {
+  restart();
+})
+
+})
+
+  // var stop = setInterval(function(){
+  // makeFood(); // calling makeFood() twice - FIX THIS!
+  // //clearInterval(stop); // put this in an if statement - game over
+  // },2000)
 
   // $foods.click(function(){
   //   $foods.remove();
@@ -123,73 +172,5 @@ $(document).ready(function(){
 
 });
 
-
-
-
-
-
-
-  // click function
-   // $foods.on("click", function() {
-   //      // $foods.addClass("different-class-here");  // save for reach goal, imgs change on click
-   //      setTimeout(function(){
-   //        $foods.remove();
-   //        // checkForWinner();  // create function/variable that's checking for winner
-   //      }, 800); // foods are removed once they're clicked on
-   //    })
-
-      // return $foods;
-
-
-
-// (function(){
-
-// // var game_start = new Audio('/audio/start-round.mp3');
-// //   game_start.play();
-
-
-
-//    // function to create divs? onclick - removed and added to score(s)
-//       // or, function to continuously occupy divs with random foods
-//       // ---
-
-
-
-
-
-   // function for scores
-      // if food is from good array, add set points to total score
-      // else, convert junk points to junk-o-meter value
-      // when score reaches x, increase speed
-      // when score reaches 25K, win game
-      // counter checking for max junk score
-      // when junk score reaches y, you lose
-
-      // ---
-
-//       console.log(createFood());
-
-// });
-
-
-
-  //   duck.on("click", function() {
-  //     duck.addClass("shot");
-
-  //     setTimeout(function() {
-  //       duck.remove();
-  //       checkForWinner();
-  //     }, 1000)
-  //   })
-
-  //   return duck;
-  // }
-
-
-  // function checkForWinner() {
-  //   if ($('.duck').length === 0) {
-  //     alert("You Win!");
-  //   }
-  // }
 
 

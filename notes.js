@@ -38,3 +38,8 @@
 // A git repository hosted on Github, with a link to your hosted game in the URL section, and frequent commits dating back to the very beginning of the project
 // You will want to create a git repository on your local machine in a different directory and OUTSIDE of the repo for this class.
 // A readme.md file with explanations of the technologies used, the approach taken, installation instructions, unsolved problems, etc.
+
+
+
+// Start screen and button
+Inside start game function, display block for everything
