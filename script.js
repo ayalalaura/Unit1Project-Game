@@ -2,82 +2,131 @@ $(document).ready(function() {
 
   console.log('script loaded');
 
+  // 2 arrays containing 2 types of foods (healthy and junk)
+  // containing name, img src, score and "healthy" or "junk" identifier
+  // for now, ignoring the preset scores...
   var healthyFoods = [
-    ['Apple','images/apple.png',10],
-    ['Avocado','images/avocado.png',30],
-    ['Blueberries','images/blueberries.png',15],
-    ['Broccoli','images/broccoli.png',20],
-    ['Carrot','images/carrot.png',15],
-    ['Lemon','images/lemon.png',5],
+    ['Apple','images/apple.png','healthy',10],
+    ['Avocado','images/avocado.png','healthy',30],
+    ['Blueberries','images/blueberries.png','healthy',15],
+    ['Broccoli','images/broccoli.png','healthy',20],
+    ['Carrot','images/carrot.png','healthy',15],
+    ['Lemon','images/lemon.png','healthy',5],
   ];
 
   var junkFoods = [
-    ['Can','images/can.png',10],
-    ['Candy','images/candy.png',5],
-    ['Doughnut','images/doughnut.png',20],
-    ['Fries','images/fries.png',30],
-<<<<<<< HEAD
-    ['Hamburger','images/hamburguer.png',25],
-=======
-    ['Hamburger','images/hamburger.png',25],
->>>>>>> 3467e5f70e8b1880dc56ada9a5187d66ed381384
-    ['Pizza','images/pizza.png',20],
+    ['Can','images/can.png','junk',10],
+    ['Candy','images/candy.png','junk',5],
+    ['Doughnut','images/doughnut.png','junk',20],
+    ['Fries','images/fries.png','junk',30],
+    ['Hamburger','images/hamburguer.png','junk',25],
+    ['Pizza','images/pizza.png','junk',20],
   ];
 
-var $assorted = [ ];
+//  empty array to store the randomized food(s)
+// var $assorted = [ ];
 
+// var - holding the fallig foods div
 var $fallingFoods = $('#falling-foods');
 
+// variables for calculating scores
+var $score = $('p.total-score');
+var $totalScore = 0;
+$score.text('Total Score: ' + $totalScore);
 
-// var $foods = $('<div class="foods"> </div>');
+// variables for calculating junk scores
+var $negScore = $('p.junk-score');
+var $junkScore = 0;
+$negScore.text('Junk Score: ' + $junkScore);
 
+// borrowed from the Pokemon game
+var $randomNum = function randNum (min,max) {
+    return Math.floor(Math.random() * (max - min +1) + min);}
 
-// create 6 <div>s with class .foods
-var makeFood = function(){
-  // choosing which array
+// function to create the food items
+var makeFood = function() {
+  // choosing which array with a random number (0 or 1)
   var healthOrJunk = Math.round(Math.random());
-  if (healthOrJunk === 0){
-    var arr = healthyFoods;
-  }  else {
-    var arr = junkFoods
-  }
-
-  //choose index
+      if (healthOrJunk === 0){
+          var arr = healthyFoods;
+      }  else {
+          var arr = junkFoods
+      }
+  // now that the array is chosen, choose the food item
   var foodItem = Math.round(Math.random() * arr.length -1);
-
+  // var - the individual div holding each food
   var $foods = $('<div class="foods"> </div>');
+  // use random food item above to grab image bground
   $foods.css('background-image', 'url(' + arr[foodItem][1] + ')') ;
+  // randomizing where they fall from; staggering them
   $foods.css('left', Math.floor(Math.random()*(660-100)+100 ));
-   $fallingFoods.append($foods);
- $foods.click(function() {
-          $foods.remove();
-          // handle some game logic with another function
-<<<<<<< HEAD
-          // is this a healthy food or a junk food?
-=======
->>>>>>> 3467e5f70e8b1880dc56ada9a5187d66ed381384
-      });
-console.log(Math.floor(Math.random()*(660-220)+100 ));
-   // for(var i=0; i<6; i++) {
-   //    makeFood();
-   //  }
+  // appending each food div to the foods container
+  $fallingFoods.append($foods);
+
+
+  $foods.click(function(){
+    $foods.remove();
+    // remove foods div altogether when clicked
+     var $points = $randomNum(5,30)
+     if (arr[foodItem][2]=== 'healthy') {
+        $score.text('Total Score: ' + ($totalScore += $points));
+      } else {
+    // reach goal: turn this into junk-o-meter score
+        // $negScore.text('Junk Score: ' + ($junkScore + foodItem[3]));
+        $negScore.text('Junk Score: ' + ($junkScore += $points));
+        }
+        // console.log($totalScore);
+        // console.log($junkScore);
+    // overallScore();
+    // call score function
+  });
+
+  // console.log(Math.floor(Math.random()*(660-220)+100 ));
+  // printing the random number indicating the left-side positioning
   }
 
-
-
-
-
-
-
-// random images in the divs
-// var chooseFoods = function(){
-//     for (var i = 0; i < healthyFoods.length - 1; i++){
-//       $assorted = healthyFoods[Math.floor(Math.random() * (healthyFoods.length - 1)+1)];
-//       $foods.css('background-image', 'url("$assorted[2]")');
-//     }
+// function to calculate scores
+// var overallScore = function() {
+//   // added 'healthy' and 'junk' values to arrays
+//   if (foodItem[2] == 'healthy') {
+//     // adding preset score to respective p tags
+//     $score.text('Total Score: ' + ($totalScore + foodItem[3]));
+//   } else {
+//     // reach goal: turn this into junk-o-meter score
+//     $negScore.text('Junk Score: ' + ($junkScore + foodItem[3]));
+//   }
 // }
-// chooseFoods();
-// console.log($assorted);
+
+
+var addEventListeners = function() {
+
+  var stop = setInterval(function(){
+  makeFood();
+  //clearInterval(stop); // put this in an if statement - game over
+  },2000)
+
+  // $foods.click(function(){
+  //   $foods.remove();
+  //   // remove foods div altogether when clicked
+  //   overallScore();
+  //   // call score function
+  // });
+
+}
+
+
+
+
+$(document).ready(function(){
+    addEventListeners();
+  })
+
+});
+
+
+
+
+
 
 
   // click function
@@ -91,24 +140,6 @@ console.log(Math.floor(Math.random()*(660-220)+100 ));
 
       // return $foods;
 
-var addEventListeners = function() {
-<<<<<<< HEAD
-  // add click function(s) here
-=======
->>>>>>> 3467e5f70e8b1880dc56ada9a5187d66ed381384
-  var stop = setInterval(function(){
-  makeFood();
-  //clearInterval(stop);
-  // put this in an if statement - game over
-  },2000)
-}
-
-$(document).ready(function(){
-    addEventListeners();
-  })
-
-});
-
 
 
 // (function(){
@@ -118,37 +149,13 @@ $(document).ready(function(){
 
 
 
-//   // function for foods to fall
-//       // randomized from array
-//       // fall down the screen
-//       // speed
-//       // increase speed
-//       // stop when win/lose
-
 //    // function to create divs? onclick - removed and added to score(s)
 //       // or, function to continuously occupy divs with random foods
 //       // ---
 
 
 
-   // function to click on falling foods
-      // disappear
-      // good food added to score
-      // bad food added to junk-o-meter
 
-
-
-      // $getSick.on("click", function() {
-      //   // $getHealthy.addClass("different-class-here");  // save for reach goal
-      //   setTimeout(function(){
-      //     $getSick.remove();
-      //     // checkForWinner();  // create function/variable that's checking for winner
-      //   }, 800); // foods are removed once they're clicked on
-      // })
-
-      // return $getSick;
-
-      // ---
 
    // function for scores
       // if food is from good array, add set points to total score
@@ -164,25 +171,6 @@ $(document).ready(function(){
 
 // });
 
-
-
-
-  // // 6. Defines a createDuck function that returns a duck
-  // function createDuck() {
-  //   // 1. Creates a <div> with the class "duck" named "duck"
-  //   var duck = $('<div class="duck"></div>');
-  //   body.append(duck);
-
-
-
-  //   duck.css("top", Math.random() * window.innerHeight);
-  //   duck.css("left", Math.random() * window.innerWidth);
-
-
-  //   setInterval(function() {
-  //     duck.css("top", Math.random() * window.innerHeight);
-  //     duck.css("left", Math.random() * window.innerWidth);
-  //   }, 2000)
 
 
   //   duck.on("click", function() {
@@ -204,6 +192,4 @@ $(document).ready(function(){
   //   }
   // }
 
-  // for(var i=0; i<5; i++) {
-  //   createDuck();
-  // }
+

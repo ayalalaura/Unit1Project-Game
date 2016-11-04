@@ -4,7 +4,7 @@ body {
 }
 
 #falling-foods {
-  margin-left: 10%;
+  margin-left: 15%;
 }
 
 .foods {
@@ -15,6 +15,23 @@ body {
   top:  0;
   animation:  fall 5s linear infinite;
 }
+
+#score p{
+  margin-left: 50px;
+  margin-bottom:0;
+  margin-top:0;
+  color:  yellow;
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: bold;
+}
+#score p.total-score{
+  color:  green;
+}
+#score p.junk-score{
+  color:  red;
+}
+
 /* .foods:nth-child(2){
   left: 220px;
 }
@@ -41,11 +58,8 @@ body {
     }
 }
 
-<<<<<<< HEAD
+
 a {
   text-decoration: none;
   color: black;
 }
-=======
-
->>>>>>> 3467e5f70e8b1880dc56ada9a5187d66ed381384
