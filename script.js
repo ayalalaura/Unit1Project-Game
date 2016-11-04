@@ -16,7 +16,11 @@ $(document).ready(function() {
     ['Candy','images/candy.png',5],
     ['Doughnut','images/doughnut.png',20],
     ['Fries','images/fries.png',30],
+<<<<<<< HEAD
     ['Hamburger','images/hamburguer.png',25],
+=======
+    ['Hamburger','images/hamburger.png',25],
+>>>>>>> 3467e5f70e8b1880dc56ada9a5187d66ed381384
     ['Pizza','images/pizza.png',20],
   ];
 
@@ -48,7 +52,10 @@ var makeFood = function(){
  $foods.click(function() {
           $foods.remove();
           // handle some game logic with another function
+<<<<<<< HEAD
           // is this a healthy food or a junk food?
+=======
+>>>>>>> 3467e5f70e8b1880dc56ada9a5187d66ed381384
       });
 console.log(Math.floor(Math.random()*(660-220)+100 ));
    // for(var i=0; i<6; i++) {
@@ -85,7 +92,10 @@ console.log(Math.floor(Math.random()*(660-220)+100 ));
       // return $foods;
 
 var addEventListeners = function() {
+<<<<<<< HEAD
   // add click function(s) here
+=======
+>>>>>>> 3467e5f70e8b1880dc56ada9a5187d66ed381384
   var stop = setInterval(function(){
   makeFood();
   //clearInterval(stop);
