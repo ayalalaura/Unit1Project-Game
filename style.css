@@ -1,0 +1,47 @@
+body {
+  background-image: url("https://c1.staticflickr.com/3/2459/3774197244_e35cb965ee_b.jpg");
+  background-position:  cover;
+}
+
+#falling-foods {
+  margin-left: 10%;
+}
+
+.foods {
+  height:  130px;
+  width:  130px;
+  display: inline-block;
+  position: absolute;
+  top:  0;
+  animation:  fall 5s linear infinite;
+}
+/* .foods:nth-child(2){
+  left: 220px;
+}
+.foods:nth-child(3){
+  left: 330px;
+}
+.foods:nth-child(4){
+  left: 440px;
+}
+.foods:nth-child(5){
+  left: 550px;
+}
+.foods:nth-child(6){
+  left: 660px;
+} */
+
+@keyframes fall
+{
+   0% {
+        top: 0;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
