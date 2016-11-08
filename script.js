@@ -25,16 +25,15 @@ $(document).ready(function() {
 
 var stop;
 
-
-// var - holding the fallig foods div
+// var - holding the falling foods div
 var $fallingFoods = $('#falling-foods');
 
-// variables for calculating scores
+// variables for calculating healthy score
 var $score = $('p.total-score');
 var $totalScore = 0;
 $score.text('Total Score: ' + $totalScore);
 
-// variables for calculating junk scores
+// variables for calculating junk score
 var $negScore = $('p.junk-score');
 var $junkScore = 0;
 $negScore.text('Junk Score: ' + $junkScore);
@@ -42,6 +41,7 @@ $negScore.text('Junk Score: ' + $junkScore);
 // borrowed from the Pokemon game
 var $randomNum = function randNum (min,max) {
     return Math.floor(Math.random() * (max - min +1) + min);}
+
 
 
 // replay function - thanks Mike R!
@@ -54,8 +54,7 @@ var restart = function() {
 // function to create the food items
 var makeFood = function() {
 
-// when this function is called, make the main container (holding
-// game elements) visible
+// when this function is called, make the main container (holding game elements) visible
 $('#main-container').css('display', 'block');
 
   // choosing which array with a random number (0 or 1)
@@ -86,26 +85,26 @@ $('#main-container').css('display', 'block');
      if (arr[foodItem][2] === 'healthy') {
         $score.text('Total Score: ' + ($totalScore += $points));
       } else {
-    // reach goal: turn this into junk-o-meter score
+        // reach goal: turn this into junk-o-meter score
         $negScore.text('Junk Score: ' + ($junkScore += $points));
         }
 
      if ($totalScore >= 300){
-      clearInterval(stop); // this doesn't work without the below (why??)
-      $fallingFoods.html(''); // cleared divs
-      $('#win-screen').css('display', 'block');
-      $('#score').css('display','none');
-      $('#win-screen').toggleClass('animated').addClass('slideInLeft');
+        clearInterval(stop); // this doesn't work without the below (why??)
+        $fallingFoods.html(''); // cleared divs
+        $('#win-screen').css('display', 'block');
+        $('#score').css('display','none');
+        $('#win-screen').toggleClass('animated').addClass('slideInLeft');
 
       console.log($totalScore);
      };
 
      if ($junkScore >= 200){
-      clearInterval(stop);
-      $fallingFoods.html(''); // cleared divs
-      $('#lose-screen').css('display', 'block');
-      $('#score').css('display','none');
-      $('#lose-screen').toggleClass('animated').addClass('slideInLeft');
+        clearInterval(stop);
+        $fallingFoods.html(''); // cleared divs
+        $('#lose-screen').css('display', 'block');
+        $('#score').css('display','none');
+        $('#lose-screen').toggleClass('animated').addClass('slideInLeft');
 
       console.log($junkScore);
      };
