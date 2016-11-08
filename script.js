@@ -22,7 +22,7 @@ $(document).ready(function() {
     ['Hamburger','images/hamburguer.png','junk',25],
     ['Pizza','images/pizza.png','junk',20],
   ];
-
+var stop;
 
 //  empty array to store the randomized food(s)
 // var $assorted = [ ];
@@ -74,7 +74,7 @@ $('#main-container').css('display', 'block');
   // use random food item above to grab image bground
   $foods.css('background-image', 'url(' + arr[foodItem][1] + ')') ;
   // randomizing where they fall from; staggering them
-  $foods.css('left', Math.floor(Math.random()*(660-100)+100 ));
+  $foods.css('left', Math.floor(Math.random()*(1000-200) + 200));
   // appending each food div to the foods container
   $fallingFoods.append($foods);
 
@@ -96,7 +96,9 @@ $('#main-container').css('display', 'block');
 
      if ($totalScore >= 300){
       clearInterval(stop); // this doesn't work
+      $fallingFoods.html(''); // cleared divs
       $('#win-screen').css('display', 'block');
+      $('#score').css('display','none');
       $('#win-screen').toggleClass('animated').addClass('slideInLeft');
 
       console.log($totalScore);
@@ -104,7 +106,9 @@ $('#main-container').css('display', 'block');
 
      if ($junkScore >= 200){
       clearInterval(stop); // this doesn't work
+      $fallingFoods.html(''); // cleared divs
       $('#lose-screen').css('display', 'block');
+      $('#score').css('display','none');
       $('#lose-screen').toggleClass('animated').addClass('slideInLeft');
 
       console.log($junkScore);
@@ -138,7 +142,7 @@ var addEventListeners = function() {
 
 $('#start-button').click(function(){
   $('#start-screen').css('display', 'none');
-  var stop = setInterval(function(){
+  stop = setInterval(function(){
   makeFood(); // calling makeFood() twice - FIX THIS!
   //clearInterval(stop); // put this in an if statement - game over
   },600)

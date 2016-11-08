@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Health Nut</title>
+    <title>Healthy Hippos</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
 </head>
 
 <body>
 
     <div id="main-container">
-        <div id="falling-foods"> </div>
+
+        <div id="falling-foods"></div>
 
         <div id="score">
             <p class="total-score"> </p>
             <p class="junk-score"></p>
         </div>
+
+        <!-- Status meter HTML & CSS adapted from:
+        https://css-tricks.com/css3-progress-bars/ -->
+        <div class="meter">
+            <span style="width: 25%"></span>
+        </div>
+
     </div>
 
     <div id="start-screen" class="animated slideInRight">
-        <h1>HOW TO PLAY</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,<br>sed do eiusmod
-        tempor incis aute irure dolor inatur</p>
+        <h1>How to play</h1>
+        <p class="screens-content">Feed your pet hippos their favorite veggies! <br />Click on healthy foods for a higher score. <br /><br />But don't ruin your appetite! Click on too many junk foods and your herbivorous hippos will get sick.</p>
         <button id="start-button">Start</button>
     </div>
 
     <div id="win-screen">
-        <h1>YOU WIN!</h1>
-        <p>How about an ice cold kombucha or matcha tea to celebrate??</p>
+        <h1>You win!</h1>
+        <p class="screens-content">How about an ice cold kombucha <br />or matcha tea to celebrate??</p>
         <button class="replay-button">Try Again</button>
     </div>
 
     <div id="lose-screen">
-        <h1>YOU LOSE!</h1>
-        <p>Oh no - GMOverload!</p>
+        <h1>You lose!</h1>
+        <p class="screens-content">Oh no - GMOverload!</p>
         <button class="replay-button">Try Again</button>
     </div>
 
-    <!-- <footer>Icons made by <a target="_blank" href="http://www.flaticon.com/authors/madebyoliver">Madebyoliver</a> from www.flaticon.com</footer> -->
+    <footer>Icons made by <a target="_blank" href="http://www.flaticon.com/authors/madebyoliver">Madebyoliver</a> from www.flaticon.com</footer>
 
 </body>
 

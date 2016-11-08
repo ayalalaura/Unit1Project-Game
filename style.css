@@ -1,34 +1,58 @@
 body {
   background-image: url("https://c1.staticflickr.com/3/2459/3774197244_e35cb965ee_b.jpg");
   background-position:  cover;
+  font-family: 'Coiny', cursive;
 }
 
+/* avocado-themed screens ftw! */
+
 #start-screen {
-  background-color: pink;
+  background-color: yellow;
+  border-color: green;
+  border-style: solid;
+  border-width: 15px;
+  border-radius: 10px;
+  color:  brown;
   width:  50%;
   height: auto;
   margin:  0 auto;
   padding: 10px;
-  margin-top:  20%;
+  margin-top:  15%;
+  text-align: center;
+  box-shadow: 3px 3px 10px rgb( 85,107,47);
 }
 
 #win-screen {
-  background-color: pink;
+  background-color: yellow;
+  border-color: green;
+  border-style: solid;
+  border-width: 15px;
+  border-radius: 10px;
+  color:  brown;
   width:  50%;
   height: auto;
   margin:  0 auto;
   padding: 10px;
-  margin-top:  20%;
+  margin-top:  15%;
+  text-align: center;
+  box-shadow: 3px 3px 10px rgb( 85,107,47);
   display: none;
 }
 
 #lose-screen {
-  background-color: pink;
+  background-color: yellow;
+  border-color: green;
+  border-style: solid;
+  border-width: 15px;
+  border-radius: 10px;
+  color:  brown;
   width:  50%;
   height: auto;
   margin:  0 auto;
   padding: 10px;
-  margin-top:  20%;
+  margin-top:  15%;
+  text-align: center;
+  box-shadow: 3px 3px 10px rgb( 85,107,47);
   display: none;
 }
 
@@ -46,10 +70,41 @@ body {
   display: inline-block;
   position: absolute;
   top:  0;
-  animation:  fall 4s linear infinite;
+  animation:  fall 6s linear infinite;
 }
 
-#score p{
+.foods:hover {
+  cursor: pointer;
+}
+
+@keyframes fall
+{
+   0% {
+        top: 0;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+#score {
+  background-color: yellow;
+  border-color: green;
+  border-style: solid;
+  border-width: 15px;
+  border-radius: 10px;
+  color:  brown;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 10px;
+  margin-left: 40px;
+  margin-bottom:0;
+  margin-top:0;
+  width: 200px;
+  box-shadow: 3px 3px 10px rgb( 85,107,47)
+}
+
+/* #score p{
   margin-left: 50px;
   margin-bottom:0;
   margin-top:0;
@@ -63,36 +118,72 @@ body {
 }
 #score p.junk-score{
   color:  red;
-}
-
-/* .foods:nth-child(2){
-  left: 220px;
-}
-.foods:nth-child(3){
-  left: 330px;
-}
-.foods:nth-child(4){
-  left: 440px;
-}
-.foods:nth-child(5){
-  left: 550px;
-}
-.foods:nth-child(6){
-  left: 660px;
 } */
-
-@keyframes fall
-{
-   0% {
-        top: 0;
-    }
-    100% {
-        top: 100%;
-    }
-}
-
 
 a {
   text-decoration: none;
   color: black;
+}
+
+h1 {
+  font-size: 28px;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+.screens-content {
+  font-size: 20px;
+}
+
+#start-button {
+  background-color: brown;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-bottom-width: 7px;
+  height:  60px;
+  width: 110px;
+  font-size: 30px;
+  color: white;
+  font-family: 'Coiny', cursive;
+  text-shadow: 0 0 2px black;
+  margin-bottom: 10px;
+}
+
+#start-button:hover {
+  cursor: pointer;
+}
+
+ /* inspired by buttons from cssdeck.com */
+#start-button:active {
+   border-bottom-width: 3px;
+ }
+
+.replay-button {
+  background-color: brown;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-bottom-width: 7px;
+  height:  75px;
+  width: 160px;
+  font-size: 26px;
+  color: white;
+  font-family: 'Coiny', cursive;
+  text-shadow: 0 0 2px black;
+  margin-bottom: 10px;
+  cursor: pointer;
+  line-height: 25px;
+}
+
+.replay-button:hover {
+  cursor: pointer;
+}
+
+.replay-button:active {
+  border-bottom-width: 3px;
+}
+
+footer {
+  position: fixed;
+  /* margin-top: 100px; */
+  bottom: 0;
 }
