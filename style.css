@@ -1,6 +1,9 @@
 body {
-  background-image: url("https://c1.staticflickr.com/3/2459/3774197244_e35cb965ee_b.jpg");
-  background-position:  cover;
+  background-color: green;
+  /* Image put together from online images labeled for reuse */
+  background-image: url("images/hippo-bground.png");
+  background-position:  25px 35px, center;
+  background-repeat: no-repeat;
   font-family: 'Coiny', cursive;
 }
 
@@ -97,28 +100,12 @@ body {
   font-size: 20px;
   text-transform: uppercase;
   padding: 10px;
-  margin-left: 40px;
-  margin-bottom:0;
-  margin-top:0;
+  margin-left: 50px;
+  margin-bottom: 0;
+  margin-top: 70px;
   width: 200px;
   box-shadow: 3px 3px 10px rgb( 85,107,47)
 }
-
-/* #score p{
-  margin-left: 50px;
-  margin-bottom:0;
-  margin-top:0;
-  color:  yellow;
-  font-family: Helvetica;
-  font-size: 20px;
-  font-weight: bold;
-}
-#score p.total-score{
-  color:  green;
-}
-#score p.junk-score{
-  color:  red;
-} */
 
 a {
   text-decoration: none;
@@ -184,6 +171,7 @@ h1 {
 
 footer {
   position: fixed;
-  /* margin-top: 100px; */
   bottom: 0;
+  padding: 10px;
+  padding-left: 17px;
 }

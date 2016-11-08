@@ -22,6 +22,7 @@ $(document).ready(function() {
     ['Hamburger','images/hamburguer.png','junk',25],
     ['Pizza','images/pizza.png','junk',20],
   ];
+
 var stop;
 
 //  empty array to store the randomized food(s)
@@ -46,7 +47,7 @@ var $randomNum = function randNum (min,max) {
 
 
 // replay function
-// thanks Mike!
+// thanks Mike R!
 var restart = function() {
   location.reload();
 }
@@ -74,15 +75,11 @@ $('#main-container').css('display', 'block');
   // use random food item above to grab image bground
   $foods.css('background-image', 'url(' + arr[foodItem][1] + ')') ;
   // randomizing where they fall from; staggering them
-  $foods.css('left', Math.floor(Math.random()*(1000-200) + 200));
+  $foods.css('left', Math.floor(Math.random()*(1200-320) + 320));
   // appending each food div to the foods container
   $fallingFoods.append($foods);
 
-  // return values
-  //
-
   $foods.click(function(){
-    // change cursor to mickey mouse hand
     $foods.remove();
     // remove foods div altogether when clicked
      var $points = $randomNum(5,30)
@@ -90,12 +87,11 @@ $('#main-container').css('display', 'block');
         $score.text('Total Score: ' + ($totalScore += $points));
       } else {
     // reach goal: turn this into junk-o-meter score
-        // $negScore.text('Junk Score: ' + ($junkScore + foodItem[3]));
         $negScore.text('Junk Score: ' + ($junkScore += $points));
         }
 
      if ($totalScore >= 300){
-      clearInterval(stop); // this doesn't work
+      clearInterval(stop); // this doesn't work without the below
       $fallingFoods.html(''); // cleared divs
       $('#win-screen').css('display', 'block');
       $('#score').css('display','none');
@@ -105,7 +101,7 @@ $('#main-container').css('display', 'block');
      };
 
      if ($junkScore >= 200){
-      clearInterval(stop); // this doesn't work
+      clearInterval(stop);
       $fallingFoods.html(''); // cleared divs
       $('#lose-screen').css('display', 'block');
       $('#score').css('display','none');
@@ -113,27 +109,11 @@ $('#main-container').css('display', 'block');
 
       console.log($junkScore);
      };
-        // console.log($totalScore);
-        // console.log($junkScore);
-    // overallScore();
-    // call score function
+
   });
 
-  // console.log(Math.floor(Math.random()*(660-220)+100 ));
-  // printing the random number indicating the left-side positioning
   }
 
-// function to calculate scores
-// var overallScore = function() {
-//   // added 'healthy' and 'junk' values to arrays
-//   if (foodItem[2] == 'healthy') {
-//     // adding preset score to respective p tags
-//     $score.text('Total Score: ' + ($totalScore + foodItem[3]));
-//   } else {
-//     // reach goal: turn this into junk-o-meter score
-//     $negScore.text('Junk Score: ' + ($junkScore + foodItem[3]));
-//   }
-// }
 
 
 
@@ -143,8 +123,7 @@ var addEventListeners = function() {
 $('#start-button').click(function(){
   $('#start-screen').css('display', 'none');
   stop = setInterval(function(){
-  makeFood(); // calling makeFood() twice - FIX THIS!
-  //clearInterval(stop); // put this in an if statement - game over
+  makeFood();
   },600)
 
 $('.replay-button').click(function() {
@@ -152,18 +131,6 @@ $('.replay-button').click(function() {
 })
 
 })
-
-  // var stop = setInterval(function(){
-  // makeFood(); // calling makeFood() twice - FIX THIS!
-  // //clearInterval(stop); // put this in an if statement - game over
-  // },2000)
-
-  // $foods.click(function(){
-  //   $foods.remove();
-  //   // remove foods div altogether when clicked
-  //   overallScore();
-  //   // call score function
-  // });
 
 }
 
