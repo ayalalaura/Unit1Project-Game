@@ -79,11 +79,14 @@ $('#main-container').css('display', 'block');
   // appending each food div to the foods container
   $fallingFoods.append($foods);
 
+
+
+
   $foods.click(function(){
     $foods.remove();
     // remove foods div altogether when clicked
      var $points = $randomNum(5,30)
-     if (arr[foodItem][2]=== 'healthy') {
+     if (arr[foodItem][2] === 'healthy') {
         $score.text('Total Score: ' + ($totalScore += $points));
       } else {
     // reach goal: turn this into junk-o-meter score
@@ -91,7 +94,7 @@ $('#main-container').css('display', 'block');
         }
 
      if ($totalScore >= 300){
-      clearInterval(stop); // this doesn't work without the below
+      clearInterval(stop); // this doesn't work without the below (why??)
       $fallingFoods.html(''); // cleared divs
       $('#win-screen').css('display', 'block');
       $('#score').css('display','none');
