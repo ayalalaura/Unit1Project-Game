@@ -6,27 +6,25 @@ $(document).ready(function() {
   // containing name, img src, score and "healthy" or "junk" identifier
   // for now, ignoring the preset scores...
   var healthyFoods = [
-    ['Apple','images/apple.png','healthy',10],
-    ['Avocado','images/avocado.png','healthy',30],
-    ['Blueberries','images/blueberries.png','healthy',15],
-    ['Broccoli','images/broccoli.png','healthy',20],
-    ['Carrot','images/carrot.png','healthy',15],
-    ['Lemon','images/lemon.png','healthy',5],
+    ['Apple','images/apple.png','healthy'],
+    ['Avocado','images/avocado.png','healthy'],
+    ['Blueberries','images/blueberries.png','healthy'],
+    ['Broccoli','images/broccoli.png','healthy'],
+    ['Carrot','images/carrot.png','healthy'],
+    ['Lemon','images/lemon.png','healthy'],
   ];
 
   var junkFoods = [
-    ['Can','images/can.png','junk',10],
-    ['Candy','images/candy.png','junk',5],
-    ['Doughnut','images/doughnut.png','junk',20],
-    ['Fries','images/fries.png','junk',30],
-    ['Hamburger','images/hamburguer.png','junk',25],
-    ['Pizza','images/pizza.png','junk',20],
+    ['Can','images/can.png','junk'],
+    ['Candy','images/candy.png','junk'],
+    ['Doughnut','images/doughnut.png','junk'],
+    ['Fries','images/fries.png','junk'],
+    ['Hamburger','images/hamburguer.png','junk'],
+    ['Pizza','images/pizza.png','junk'],
   ];
 
 var stop;
 
-//  empty array to store the randomized food(s)
-// var $assorted = [ ];
 
 // var - holding the fallig foods div
 var $fallingFoods = $('#falling-foods');
@@ -46,8 +44,7 @@ var $randomNum = function randNum (min,max) {
     return Math.floor(Math.random() * (max - min +1) + min);}
 
 
-// replay function
-// thanks Mike R!
+// replay function - thanks Mike R!
 var restart = function() {
   location.reload();
 }
@@ -66,7 +63,7 @@ $('#main-container').css('display', 'block');
       if (healthOrJunk === 0){
           var arr = healthyFoods;
       }  else {
-          var arr = junkFoods
+          var arr = junkFoods;
       }
   // now that the array is chosen, choose the food item
   var foodItem = Math.round(Math.random() * arr.length -1);
