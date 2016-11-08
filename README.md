@@ -35,5 +35,5 @@ As a throwback to one of my favorite childhood games, Hungry Hungry Hippos, I cr
 - It works!!! It has been very rewarding to see this game come to life. I am very proud of this first project. It meets all the necessary requirements and reflects a bit of my colorful personality.
 
 ### Challenges
-- As incredibly proud as I am of my improving JavaScript skills, I struggled with simple syntax. The functionality is there, but I know that I can brush up on syntax and creating cleaner code. There's always room for improvement!
+- As incredibly proud as I am of my improving JavaScript skills, I struggled with syntax. The functionality is there, but I know that I can brush up on syntax and creating cleaner code. There's always room for improvement!
 - The planning phase consumed most of my time, so I was unable to meet a couple reach goals: creating a vertical meter to visually measure the junk food score as well as adding audio to make the game even more interactive and engaging.
